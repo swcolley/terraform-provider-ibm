@@ -349,7 +349,7 @@ func resourceIBMPolicyAssignmentRead(context context.Context, d *schema.Resource
 
 	assignmentResponse, response, err := iamPolicyManagementClient.GetPolicyAssignmentWithContext(context, getPolicyAssignmentOptions)
 
-	assignmentDetails := assignmentResponse.(*iampolicymanagementv1.GetPolicyAssignmentResponse)
+	assignmentDetails := assignmentResponse.(*iampolicymanagementv1.PolicyTemplateAssignmentItems)
 	if err != nil {
 		if response != nil && response.StatusCode == 404 {
 			d.SetId("")
